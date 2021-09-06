@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.hrms.utils.ConfigsReader;
 import com.hrms.utils.Constants;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BaseClass {
 	
 	public static WebDriver driver;
@@ -17,15 +19,15 @@ public class BaseClass {
 	public static WebDriver setUp() {
 
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
-
+		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
 		switch (ConfigsReader.getProperty("browser").toLowerCase()) {
 
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_PATH);
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		case "firefox":
-			System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_PATH);
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			break;
 		default:
