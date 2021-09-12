@@ -14,7 +14,7 @@ import io.cucumber.junit.CucumberOptions;
 						// implementation code
 						// if set to true no actual execution will happen
 		monochrome = true,
-		tags = "@temp",
+		tags = "@smoke",
 //		strict = true,
 		publish = true,
 		plugin= {
@@ -25,6 +25,6 @@ import io.cucumber.junit.CucumberOptions;
 
 )
 
-public class TestRunner {
+public class SmokeRunner {
 
 }

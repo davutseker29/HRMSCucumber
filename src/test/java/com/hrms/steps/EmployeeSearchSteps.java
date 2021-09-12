@@ -21,10 +21,10 @@ public class EmployeeSearchSteps extends CommonMethods {
 		jsClick(dashboard.PIM);
 	}
 
-	@When("user enters valid employee id")
-	public void user_enters_valid_employee_id() {
+	@When("user enters valid employee id {string}")
+	public void user_enters_valid_employee_id(String empID) {
 
-		sendText(viewEmp.empID, "17708");
+		sendText(viewEmp.empID, empID);
 
 	}
 
@@ -39,7 +39,7 @@ public class EmployeeSearchSteps extends CommonMethods {
 
 	}
 
-	@When("user enters valid employee name and last name")
+	@When("user enters valid employee {string} and {string}")
 	public void user_enters_valid_employee_name_and_last_name() {
 		sendText(viewEmp.empName, "rumon hu Afzal");
 
