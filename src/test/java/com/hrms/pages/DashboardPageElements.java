@@ -1,5 +1,7 @@
 package com.hrms.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,6 +19,9 @@ public class DashboardPageElements extends CommonMethods{
 	
 	@FindBy(xpath = "//div[@id='branding']/a[1]/img")
 	public WebElement logo;
+	
+	@FindBy(xpath ="//*[@id=\"wrapper\"]/div[2]/ul/li")
+	public List<WebElement>  dashMenu;
 
 	@FindBy(xpath = "//a[@id='menu_pim_addEmployee']")
 	public WebElement addEmp;

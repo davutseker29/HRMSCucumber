@@ -3,9 +3,12 @@ package com.hrms.steps;
 import java.util.List;
 import java.util.Map;
 
+
 import org.junit.Assert;
 
 import com.hrms.utils.CommonMethods;
+import com.hrms.utils.Constants;
+import com.hrms.utils.ExcelUtility;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -106,6 +109,28 @@ public class AddEmployeeSteps extends CommonMethods {
 			Assert.assertEquals("Employee is not addedd successfully", expected, actual);
 			jsClick(dashboard.addEmp);
 			wait(5);
+		}
+	}
+	
+	@When("user enters employee data from {string} excel sheet than employee is added")
+	public void user_enters_employee_data_from_excel_sheet_than_employee_is_added(String sheetName) {
+		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(Constants.TESTDATA_FILEPATH, sheetName);
+		
+		for (Map<String, String> data : excelList) {
+			String fname = data.get("FirstName");
+			String mname = data.get("MiddleName");
+			String lname = data.get("LastName");
+
+			sendText(addEmp.firstName, fname);
+			sendText(addEmp.middleName, mname);
+			sendText(addEmp.lastName, lname);
+			click(addEmp.saveBtn);
+
+			String actual = pdetails.profilePic.getText();
+			String expected = fname + " " + mname + " " + lname;
+			Assert.assertEquals("Employee is not addedd successfully", expected, actual);
+			jsClick(dashboard.addEmp);
+
 		}
 	}
 

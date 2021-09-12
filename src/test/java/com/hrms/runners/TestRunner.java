@@ -14,12 +14,14 @@ import io.cucumber.junit.CucumberOptions;
 						// implementation code
 						// if set to true no actual execution will happen
 		monochrome = true,
-
-		tags = "@inProgress",
-
+		tags = "@temp",
 //		strict = true,
-
-		publish = true
+		publish = true,
+		plugin= {
+				"pretty",
+				
+				
+		}
 
 )
 

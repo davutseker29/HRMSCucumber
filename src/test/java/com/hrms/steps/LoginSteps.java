@@ -1,10 +1,14 @@
 package com.hrms.steps;
 
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Assert;
 
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -64,5 +68,20 @@ public class LoginSteps extends CommonMethods {
 	   String actual=dashboard.welcome.getText();
 	   Assert.assertEquals(actual,firstName);
 	}
+	
+	@When("user enters invalid username and password and see error message")
+	public void user_enters_invalid_username_and_password_and_see_error_message(DataTable invalidCredentials) {
+		List<Map<String, String>> list = invalidCredentials.asMaps();
+		for (Map<String, String> map : list) {
+			sendText(login.username, map.get("UserName"));
+			sendText(login.password, map.get("Password"));
+			click(login.loginBtn);
 
-}
+			Assert.assertEquals("Not correct error message is displayed", map.get("ErrorMessage"),
+					login.errorMsg.getText());
+
+		}
+	}
+	}
+
+

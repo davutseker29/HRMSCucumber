@@ -1,6 +1,6 @@
 Feature: Add Employee Homework
 
-  @inProgress
+  @regression
   Scenario Outline: 
     Given user is logged in with valid admin credentials
     And user navigates to AddEmployeePage

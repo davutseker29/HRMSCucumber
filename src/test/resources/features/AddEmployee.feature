@@ -44,3 +44,7 @@ Feature: Add Employee
       | John      | j          | Smith    |
       | Jane      | j          | Smith    |
      
+     @excel 
+      Scenario: Adding Multiple Employees from Excel
+      When user enters employee data from "Employee" excel sheet than employee is added
+     
