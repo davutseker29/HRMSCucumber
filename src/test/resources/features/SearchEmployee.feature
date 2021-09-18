@@ -14,6 +14,6 @@ Feature: Employee Search
 
   @smoke
   Scenario: Search employee by name
-    When user enters valid employee "rumon hu" and "Afzal"
+    When user enters valid employee "rumon hu Afzal"
     And click on search button
     Then user see employee information is displayed

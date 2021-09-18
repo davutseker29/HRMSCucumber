@@ -254,8 +254,10 @@ public class CommonMethods extends PageInitializer {
 	 * 
 	 * @param filename
 	 */
-	public static String takeScreenshot(String filename) {
+	public static byte[] takeScreenshot(String filename) {
 		TakesScreenshot ts = (TakesScreenshot) driver;
+		byte[] picBytes=ts.getScreenshotAs(OutputType.BYTES);
+		
 		File file = ts.getScreenshotAs(OutputType.FILE);
 		String destinationFile=Constants.SCREEN_FILEPATH+filename+getTimeStamp()+".png";
 		
@@ -264,7 +266,7 @@ public class CommonMethods extends PageInitializer {
 		} catch (Exception ex) {
 			System.out.println("Cannot take screenshot!");
 		}
-		return destinationFile;
+		return picBytes;
 	}
 	
 	/**

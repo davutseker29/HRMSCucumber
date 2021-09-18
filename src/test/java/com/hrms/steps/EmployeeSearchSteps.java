@@ -39,9 +39,9 @@ public class EmployeeSearchSteps extends CommonMethods {
 
 	}
 
-	@When("user enters valid employee {string} and {string}")
-	public void user_enters_valid_employee_name_and_last_name() {
-		sendText(viewEmp.empName, "rumon hu Afzal");
+	@When("user enters valid employee {string}")
+	public void user_enters_valid_employee_name_and_last_name(String name) {
+		sendText(viewEmp.empName,name );
 
 	}
 

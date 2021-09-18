@@ -4,18 +4,18 @@ Feature: Add Employee
   Background: 
     Given user is logged in with valid admin credentials
     And user navigates to AddEmployeePage
-
+@regression
   Scenario: Add Employee with first and lastname
     When user enters employees "bumssba" and "bumssba"
     And user clicks save button
     Then "bumssba bumssba" is added successfully
-
+@regression
   Scenario: Add Employee without employee id
     When user enters employees first name and last name
     And user deletes employee id
     And user clicks save button
     Then employee is added successfully
-
+@regression
   Scenario: AddEmployee and create Login Credentials
     When user enters employees first name and last name
     And user clicks on create login checkbox
@@ -44,7 +44,7 @@ Feature: Add Employee
       | John      | j          | Smith    |
       | Jane      | j          | Smith    |
      
-     @excel 
+     @regression 
       Scenario: Adding Multiple Employees from Excel
       When user enters employee data from "Employee" excel sheet than employee is added
      

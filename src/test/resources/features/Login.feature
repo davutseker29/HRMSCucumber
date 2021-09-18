@@ -3,7 +3,7 @@
 Feature: Login
 
   #enhancing test with Scenario Outline to login as admin and ess user
-  @smoke
+ 
   Scenario Outline: valid admin and ess login
     When user enters valid "<Username>" and "<Password>"
     Then "<FirstName>" is successfully logged in
@@ -14,7 +14,7 @@ Feature: Login
       | dseker   | Ankara06,,  | Welcome David |
 
   #enhancing test with Scenario Outline to login as admin and ess user
-  @temp
+  
   Scenario Outline: Error message valiation while invalid login
     When user enters invalid "<Username>" or "<Password>"
     Then user sees "<Error message>"
