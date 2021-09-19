@@ -26,7 +26,7 @@ public class LoginSteps extends CommonMethods {
 		Assert.assertEquals(expected, actual);
 		System.out.println(actual);
 		wait(2);
-		tearDown();
+		
 	}
 
 	@When("user enter valid ess username and password")
@@ -41,7 +41,7 @@ public class LoginSteps extends CommonMethods {
 		Assert.assertEquals(actual, expected);
 		System.out.println(actual);
 		wait(2);
-		tearDown();
+		
 	}
 
 	@When("User enter valid username and invalid password")
@@ -56,7 +56,7 @@ public class LoginSteps extends CommonMethods {
 		String actual = login.errorMsg.getText();
 		String expected = "Invalid credentials";
 		Assert.assertEquals(actual, expected);
-		tearDown();
+		
 	}
 	
 	@When("user enters valid {string} and {string}")

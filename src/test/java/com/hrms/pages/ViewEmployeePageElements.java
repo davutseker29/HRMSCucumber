@@ -28,6 +28,9 @@ public class ViewEmployeePageElements {
 	@FindBy (xpath="//table[@id= 'resultTable']//tbody/tr/td[3]")
 	public List<WebElement> tableFirstName;
 	
+	@FindBy (xpath="//tr[@class='odd']/td[2]/a")
+	public List<WebElement> tableID;
+	
 	/**
 	 * this method will check if employees table is displayed
 	 * @return
@@ -36,6 +39,19 @@ public class ViewEmployeePageElements {
 	public boolean isTableDisplayed(){
 		return employeesTable.isDisplayed();
 	}
+	
+	public List<Map<String, String>> getIDFromTable() {
+		List<Map<String, String>> uiID = new ArrayList<>();
+		for (WebElement row : tableID) {
+			Map<String, String> storeUiIDs = new LinkedHashMap<>();
+			String tableID = row.getText();
+			storeUiIDs.put("emp_IDs", tableID);
+			uiID.add(storeUiIDs);
+		}
+		return uiID;
+	}
+	
+	
 	
 	public List<Map<String, String>> getFirstNameFromTable() {
 		List<Map<String, String>> uiName = new ArrayList<>();
